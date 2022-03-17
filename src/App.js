@@ -1,12 +1,10 @@
-import React, { Fragment } from 'react';
-import './App.css';
-import ajax from './components/ajax';
-
+import './App.css'
+import Ajax from "./ajax"
 function App() {
   return (
-    <Fragment>
-      <ajax />
-    </Fragment>
+    <>
+      <Ajax />
+    </>
   );
 }
 

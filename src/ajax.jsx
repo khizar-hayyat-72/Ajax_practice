@@ -18,7 +18,6 @@ const Ajax = () => {
     getData();
   } , [])
 
-console.log(users);
   return (
       <>
       <Container mt={5}>

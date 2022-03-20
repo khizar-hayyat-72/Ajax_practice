@@ -1,14 +1,17 @@
-import React, { useEffect} from 'react'
+import React, { useEffect, useState } from 'react'
 import Container from '@mui/material/Container'
 import axios from 'axios'
 
 
 const Ajax = () => {
+ 
+
+   const [users, setUser] = useState([]);
 
   useEffect(() => {
-    async function getData(){
-      const res = await axios.get(`https://dev-api.amazepbc.com/mazapi/v1/values/states`, { mode: 'no-cors' });
-      console.log(res.data.id)
+    const getData = async() =>{
+      const res = await axios.get(`https://api.github.com/users`);
+      setUser(res.data);
     }
 
     getData();
@@ -16,7 +19,23 @@ const Ajax = () => {
   return (
     <Container>
       <>
-         <h2>Amaze Users</h2>
+        {
+          users.map((user,index) => {
+            return(
+              <ul key={index}>
+                <li>
+                  {user.login} 
+                </li>
+                <li>
+                   <img src={user.avatar_url} alt='Img'/>
+                </li>
+                <li>
+                   {user.type}
+                </li>
+              </ul>
+            )
+          })
+        }
       </>
     </Container>
   )

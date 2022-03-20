@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import Container from '@mui/material/Container'
+import Container from '@mui/material/Container';
+import './ajax.css'
+
 import axios from 'axios'
 
 
 const Ajax = () => {
- 
 
    const [users, setUser] = useState([]);
 
@@ -15,29 +16,49 @@ const Ajax = () => {
     }
 
     getData();
-  })
+  } , [])
+
+console.log(users);
   return (
-    <Container>
       <>
-        {
-          users.map((user,index) => {
-            return(
-              <ul key={index}>
-                <li>
-                  {user.login} 
-                </li>
-                <li>
-                   <img src={user.avatar_url} alt='Img'/>
-                </li>
-                <li>
-                   {user.type}
-                </li>
-              </ul>
-            )
-          })
-        }
+      <Container mt={5}>
+        <table >
+          <th>ID</th>
+          <th>Image</th>
+          <th>Username</th>
+          <th>User Type</th>
+          <th>Node ID</th>
+          <th>Github Url</th>
+            {
+              users.map((user) => {
+                return(
+                  <tr>
+                    <td>
+                      {user.id}
+                    </td>
+                    <td>
+                      <img src={user.avatar_url} alt="text" />
+                    </td>
+                    <td className='userName'>
+                      {user.login }
+                    </td>
+                    <td>
+                      {user.type}
+                    </td>
+                    <td>
+                      {user.node_id}
+                    </td>
+                    <td>
+                      {user.url}
+                    </td>
+                    
+                  </tr>
+                )
+              })
+            }
+          </table>
+        </Container>
       </>
-    </Container>
   )
 }
 

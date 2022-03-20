@@ -1,0 +1,18 @@
+table, th, td {
+    border:1px solid black;
+    text-align: center;
+  }
+
+img{
+    height: 50px;
+    width: 50px;
+}
+
+.userName{
+    text-transform: capitalize;
+}
+
+table{
+
+    margin: 2rem auto 2rem auto;
+}
